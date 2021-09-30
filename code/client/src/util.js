@@ -230,7 +230,7 @@ export default {
     return `https://github.com/polymorpher/one-wallet/releases/tag/v0.${majorVersion}.${minorVersion}`
   },
 
-  isWONE: (token) => token.address === ONEConstants.Sushi.WONE || token.contractAddress === ONEConstants.Sushi.WONE,
+  isWONE: (token) => token.address === ONEConstants.Kanga.WONE || token.contractAddress === ONEConstants.Kanga.WONE,
 
   isONE: (token) => !token.address && !token.contractAddress,
 

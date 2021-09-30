@@ -34,7 +34,7 @@ const tokenIconUrl = (token) => {
     return token.icon
   }
   const symbol = token.iconSymbol || token.symbol
-  return `https://res.cloudinary.com/sushi-cdn/image/fetch/w_64/https://raw.githubusercontent.com/sushiswap/icons/master/token/${symbol.toLowerCase()}.jpg`
+  return `https://raw.githubusercontent.com/kangafinance/icons/master/token/${symbol.toLowerCase()}.jpg`
 }
 
 const textStyle = {
@@ -188,9 +188,9 @@ const Swap = ({ address }) => {
   // Loads supported tokens that are available for swap.
   useEffect(() => {
     const getPairs = async () => {
-      const { pairs, tokens } = await api.sushi.getCachedTokenPairs()
+      const { pairs, tokens } = await api.kanga.getCachedTokenPairs()
       // TODO: remove restrictions for token-token swaps later
-      const filteredPairs = (pairs || []).filter(e => e.t0 === ONEConstants.Sushi.WONE || e.t1 === ONEConstants.Sushi.WONE)
+      const filteredPairs = (pairs || []).filter(e => e.t0 === ONEConstants.Kanga.WONE || e.t1 === ONEConstants.Kanga.WONE)
       setPairs(filteredPairs)
       Object.keys(tokens).forEach(addr => {
         tokens[addr].address = addr
@@ -248,7 +248,7 @@ const Swap = ({ address }) => {
     }
     // console.log(selectedTokenSwapFrom)
     // console.log(tokens)
-    const from = tokenFrom.address || tokenFrom.contractAddress || ONEConstants.Sushi.WONE
+    const from = tokenFrom.address || tokenFrom.contractAddress || ONEConstants.Kanga.WONE
     const tokensAsTo = pairs.filter(e => e.t0 === from).map(e => tokens[e.t1])
     const tokensAsFrom = pairs.filter(e => e.t1 === from).map(e => tokens[e.t0])
     const filteredTokens = {}
@@ -258,7 +258,7 @@ const Swap = ({ address }) => {
     const toTokens = Object.keys(filteredTokens).map(k => filteredTokens[k])
     // ONE can be exchanged to WONE
     if (util.isONE(tokenFrom)) {
-      toTokens.push(tokens[ONEConstants.Sushi.WONE])
+      toTokens.push(tokens[ONEConstants.Kanga.WONE])
     } else {
       // any token except ONE itself can be exchanged to ONE
       toTokens.push(HarmonyONE)
@@ -291,7 +291,7 @@ const Swap = ({ address }) => {
 
     const getTokenAllowance = async () => {
       if (tokenFrom.address) {
-        const allowance = await api.sushi.getAllowance({ address, contractAddress: tokenFrom.address })
+        const allowance = await api.kanga.getAllowance({ address, contractAddress: tokenFrom.address })
         // console.log({ allowance: allowance.toString(), contractAddress: tokenFrom.address })
         setTokenAllowance(allowance)
       } else {
@@ -312,17 +312,17 @@ const Swap = ({ address }) => {
       }
 
       try {
-        const req = { t0: tokenFrom.address || ONEConstants.Sushi.WONE, t1: tokenTo.address || ONEConstants.Sushi.WONE }
+        const req = { t0: tokenFrom.address || ONEConstants.Kanga.WONE, t1: tokenTo.address || ONEConstants.Kanga.WONE }
         if (req.t0 === req.t1) {
           setTokenReserve({ from: new BN(0), to: new BN(0) })
           return
         }
-        const pairAddress = await api.sushi.getPair(req)
+        const pairAddress = await api.kanga.getPair(req)
         if (!pairAddress || pairAddress === ONEConstants.EmptyAddress) {
           setTokenReserve({ from: new BN(0), to: new BN(0) })
           return
         }
-        const { reserve0, reserve1 } = await api.sushi.getReserves({ pairAddress })
+        const { reserve0, reserve1 } = await api.kanga.getReserves({ pairAddress })
         setTokenReserve({ from: new BN(reserve0), to: new BN(reserve1) })
       } catch (e) {
         console.error(e)
@@ -392,7 +392,7 @@ const Swap = ({ address }) => {
     const outDecimal = isFrom ? tokenTo.decimal : tokenFrom.decimal
     const valueDecimal = isFrom ? tokenFrom.decimal : tokenTo.decimal
     const { balance: amountIn, formatted: amountInFormatted } = util.toBalance(value, undefined, valueDecimal)
-    const amountOut = await api.sushi.getAmountOut({ amountIn, tokenAddress, inverse: useFrom !== isFrom })
+    const amountOut = await api.kanga.getAmountOut({ amountIn, tokenAddress, inverse: useFrom !== isFrom })
 
     const { formatted: amountOutFormatted } = util.computeBalance(amountOut, undefined, outDecimal)
     toSetter(amountOutFormatted)
@@ -474,8 +474,8 @@ const Swap = ({ address }) => {
 
     const hexData = ONEUtil.encodeCalldata(
       'swapETHForExactTokens(uint256,address[],address,uint256)',
-      [amountOut, [ONEConstants.Sushi.WONE, tokenTo.address], address, (now + deadline)])
-    const args = { amount: fromAmount.toString(), operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Sushi.ROUTER, tokenId: 0, dest: ONEConstants.EmptyAddress }
+      [amountOut, [ONEConstants.Kanga.WONE, tokenTo.address], address, (now + deadline)])
+    const args = { amount: fromAmount.toString(), operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Kanga.ROUTER, tokenId: 0, dest: ONEConstants.EmptyAddress }
     commonCommitReveal({ otp, otp2, hexData, args, trackToken: true })
   }
   const handleSwapTokenToONE = ({ slippage, deadline, otp, otp2 }) => {
@@ -484,18 +484,18 @@ const Swap = ({ address }) => {
 
     const hexData = ONEUtil.encodeCalldata(
       'swapExactTokensForETH(uint256,uint256,address[],address,uint256)',
-      [fromAmount.toString(), amountOut.toString(), [tokenFrom.address, ONEConstants.Sushi.WONE], address, (now + deadline)])
-    const args = { amount: 0, operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Sushi.ROUTER, tokenId: 0, dest: ONEConstants.EmptyAddress }
+      [fromAmount.toString(), amountOut.toString(), [tokenFrom.address, ONEConstants.Kanga.WONE], address, (now + deadline)])
+    const args = { amount: 0, operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Kanga.ROUTER, tokenId: 0, dest: ONEConstants.EmptyAddress }
     commonCommitReveal({ otp, otp2, hexData, args, updateFromBalance: true })
   }
   const handleSwapONEToWONE = ({ otp, otp2 }) => {
     const hexData = ONEUtil.encodeCalldata('deposit()', [])
-    const args = { amount: fromAmount.toString(), operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Sushi.WONE, tokenId: 0, dest: ONEConstants.EmptyAddress }
+    const args = { amount: fromAmount.toString(), operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Kanga.WONE, tokenId: 0, dest: ONEConstants.EmptyAddress }
     commonCommitReveal({ otp, otp2, hexData, args, trackToken: true })
   }
   const handleSwapWONEToONE = ({ otp, otp2 }) => {
     const hexData = ONEUtil.encodeCalldata('withdraw(uint256)', [fromAmount.toString()])
-    const args = { amount: 0, operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Sushi.WONE, tokenId: 0, dest: ONEConstants.EmptyAddress }
+    const args = { amount: 0, operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: ONEConstants.Kanga.WONE, tokenId: 0, dest: ONEConstants.EmptyAddress }
     commonCommitReveal({ otp, otp2, hexData, args, updateFromBalance: true })
   }
   const confirmSwap = () => {
@@ -541,7 +541,7 @@ const Swap = ({ address }) => {
     if (invalidOtp || invalidOtp2) return
     const hexData = ONEUtil.encodeCalldata(
       'approve(address,uint256)',
-      [ONEConstants.Sushi.ROUTER, new BN(new Uint8Array(32).fill(0xff)).toString()])
+      [ONEConstants.Kanga.ROUTER, new BN(new Uint8Array(32).fill(0xff)).toString()])
     const args = { amount: 0, operationType: ONEConstants.OperationType.CALL, tokenType: ONEConstants.TokenType.NONE, contractAddress: tokenFrom.address, tokenId: 0, dest: ONEConstants.EmptyAddress }
     commonCommitReveal({
       otp,
@@ -644,7 +644,7 @@ const Swap = ({ address }) => {
         <TallRow>
           <Col span={24}>
             <Warning>
-              Insufficient liquidity in SushiSwap. Please reduce expected amount or try a different token pair.
+              Insufficient liquidity in Kanga Finance. Please reduce expected amount or try a different token pair.
             </Warning>
           </Col>
         </TallRow>}
@@ -669,12 +669,12 @@ const Swap = ({ address }) => {
           <TallRow>
             <Col span={24}>
               <Title level={4}>
-                Authorize SushiSwap to transfer your {tokenFrom.symbol}?
+                Authorize Kanga Finance to transfer your {tokenFrom.symbol}?
               </Title>
               <Hint>
-                You only need to do this once for each token. Only with your approval, SushiSwap can swap your {tokenFrom.symbol} for ONE or another token.
+                You only need to do this once for each token. Only with your approval, Kanga can swap your {tokenFrom.symbol} for ONE or another token.
                 <br /><br />
-                SushiSwap operates as a smart contract. Based on its <Link to='https://github.com/sushiswap/sushiswap' target='_blank' rel='noreferrer'>source code</Link>, it can only move your token when you initiate a swap.
+                Kanga Finance operates as a smart contract. Based on its <Link to='https://github.com/kangafinance/kanga' target='_blank' rel='noreferrer'>source code</Link>, it can only move your token when you initiate a swap.
               </Hint>
             </Col>
           </TallRow>

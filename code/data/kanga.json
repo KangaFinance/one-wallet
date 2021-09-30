@@ -1,0 +1,249 @@
+{
+  "pairs": [
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0xc4860463C59D59a9aFAc9fdE35dff9Da363e8425",
+      "pair": "0xF8B67C8A3b590df052a950f0742Fc49a41FE7F0E"
+    },
+    {
+      "t0": "0x6D307636323688Cc3Fe618CcbA695eFC7a94f813",
+      "t1": "0xc4860463C59D59a9aFAc9fdE35dff9Da363e8425",
+      "pair": "0x4C5e5B1a12312b0A9196fEAa09B8715B0a6dac9A"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2",
+      "pair": "0x529552B5C9bC01C2928ABA4a50ACB0bcaA321456"
+    },
+    {
+      "t0": "0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2",
+      "t1": "0xc4860463C59D59a9aFAc9fdE35dff9Da363e8425",
+      "pair": "0x1a6A124a6234211d7D22E604545ddbaf971Ffbfe"
+    },
+    {
+      "t0": "0x6D307636323688Cc3Fe618CcbA695eFC7a94f813",
+      "t1": "0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2",
+      "pair": "0x1DD4A96eF56A9a207A7Ca1D62dd63b07ec163182"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0x6D307636323688Cc3Fe618CcbA695eFC7a94f813",
+      "pair": "0xDE29352F50115340c0d6044a9d556Bd0540E850E"
+    },
+    {
+      "t0": "0x16c640660d25Ce3cEE50075995567dB74e380F96",
+      "t1": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "pair": "0x02872a6f81E98A5e23F6f49BB2e501BA08FBacfA"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510",
+      "pair": "0x36351905539FB07a1149EAAe9D0FA7437E7f0c21"
+    },
+    {
+      "t0": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68",
+      "t1": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "pair": "0x9534E3486786Cbac05Bb8431Bf57BE05830CF301"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE",
+      "pair": "0x6797C5411F9703c24B8a62901EF7Efbc16A86D63"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E",
+      "pair": "0x94a1da04d57a219fD96764FFC8b07Ca97259931e"
+    },
+    {
+      "t0": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "t1": "0xB1Ce20837c7D9604046b18914Ac90dda3fF69d0e",
+      "pair": "0xA26d9D45e0cb6a13A539C8BaC5b733eadC4A6773"
+    },
+    {
+      "t0": "0x260af0515ee751Be4E3eC2F530E06c6B164D8864",
+      "t1": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "pair": "0x01C750A8Fa66eE852B5058102C0c66Fc52B3c9ef"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7",
+      "pair": "0xC0F2CFABDe04dbDCb715Cd5173afcEb2722f9496"
+    },
+    {
+      "t0": "0x16c640660d25Ce3cEE50075995567dB74e380F96",
+      "t1": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "pair": "0xdE74E433e19Bb218E9A4C977159d210EB8f51C70"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510",
+      "pair": "0x60CC6de2593bCDdaD076b5dE4A681a20beF91F01"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68",
+      "pair": "0x7f091ff3E6Baf9b7a09422e1E020200407E5d835"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE",
+      "pair": "0x2390C7c0c8b6D01961A1b76AA904ceC77695b6cf"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E",
+      "pair": "0x530B72b0395820acf8F10291A15ae286501f0FA7"
+    },
+    {
+      "t0": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "t1": "0xB1Ce20837c7D9604046b18914Ac90dda3fF69d0e",
+      "pair": "0x43f4cad619E8fEef42DbE803AA2c40a255d371f9"
+    },
+    {
+      "t0": "0x260af0515ee751Be4E3eC2F530E06c6B164D8864",
+      "t1": "0x4d6260b2B337aAf34785db207226C65DAdC34D86",
+      "pair": "0xD098a7d8D428ABbE58F28A54173f1e5711781656"
+    },
+    {
+      "t0": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68",
+      "t1": "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510",
+      "pair": "0x42b0C6502902a47913744294F3b4676298BeD585"
+    },
+    {
+      "t0": "0x16c640660d25Ce3cEE50075995567dB74e380F96",
+      "t1": "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510",
+      "pair": "0xd7f83264e07f8D40e3C51D4e57989F9f9053359A"
+    },
+    {
+      "t0": "0x16c640660d25Ce3cEE50075995567dB74e380F96",
+      "t1": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68",
+      "pair": "0x327143153B5a883bEB2BFA3427d978788541d8dD"
+    },
+    {
+      "t0": "0x16c640660d25Ce3cEE50075995567dB74e380F96",
+      "t1": "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E",
+      "pair": "0xBD1f3B084F4A5cB26F4feeaEba3a9a86a0240659"
+    },
+    {
+      "t0": "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE",
+      "t1": "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E",
+      "pair": "0x96324bEAAcD5DE48Eee379beA08522bC07dcf338"
+    },
+    {
+      "t0": "0x260af0515ee751Be4E3eC2F530E06c6B164D8864",
+      "t1": "0xB1Ce20837c7D9604046b18914Ac90dda3fF69d0e",
+      "pair": "0x219282f26439144c3ca8306e690679E0Ce368E07"
+    },
+    {
+      "t0": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68",
+      "t1": "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE",
+      "pair": "0xb14D42Fb3Fc18ed33a9cD430b157fB2C3863c35c"
+    },
+    {
+      "t0": "0x289590A672C3Eb0AE9c952dBbf00E489f3F0B7b1",
+      "t1": "0x8F745570fD29C36a9B2fEf2cc1E89a7ae8b68cA7",
+      "pair": "0x511adBd5F93df502eE2F3F44A9f6b720966CDA53"
+    }
+  ],
+  "tokens": {
+    "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7": {
+      "symbol": "KANGA",
+      "name": "KangaToken",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000000",
+      "address": "0x688a7C94d7be50289FFDb648C8F9e38ac55970F7"
+    },
+    "0xc4860463C59D59a9aFAc9fdE35dff9Da363e8425": {
+      "symbol": "BUSD",
+      "name": "Binance USD",
+      "decimal": "18",
+      "supply": "2745532368000000000126",
+      "address": "0xc4860463C59D59a9aFAc9fdE35dff9Da363e8425"
+    },
+    "0x6D307636323688Cc3Fe618CcbA695eFC7a94f813": {
+      "symbol": "bscBUSD",
+      "name": "Binance USD",
+      "decimal": "18",
+      "supply": "99520000000000000000",
+      "address": "0x6D307636323688Cc3Fe618CcbA695eFC7a94f813"
+    },
+    "0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2": {
+      "symbol": "WONE",
+      "name": "Wrapped ONE",
+      "decimal": "18",
+      "supply": "25434665389686737970412506",
+      "address": "0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2"
+    },
+    "0x16c640660d25Ce3cEE50075995567dB74e380F96": {
+      "symbol": "WONE",
+      "name": "WONE",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0x16c640660d25Ce3cEE50075995567dB74e380F96"
+    },
+    "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510": {
+      "symbol": "1ETH",
+      "name": "1ETH",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0xbbd8d7b71170916a033E4d07F2A8932f5F3aa510"
+    },
+    "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68": {
+      "symbol": "1WBTC",
+      "name": "1WBTC",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0x55Ac2c51252FEC72a04a575ace2b88D00d13Ab68"
+    },
+    "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE": {
+      "symbol": "1USDT",
+      "name": "1USDT",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0x8800a37FbEd8953A642c4B8186bC5780Cd253FEE"
+    },
+    "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E": {
+      "symbol": "1USDC",
+      "name": "1USDC",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0xC285b03fFdB3fb5C77e3BDD0A2206A69A3691f0E"
+    },
+    "0xB1Ce20837c7D9604046b18914Ac90dda3fF69d0e": {
+      "symbol": "BUSD",
+      "name": "BUSD",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0xB1Ce20837c7D9604046b18914Ac90dda3fF69d0e"
+    },
+    "0x260af0515ee751Be4E3eC2F530E06c6B164D8864": {
+      "symbol": "bscBUSD",
+      "name": "bscBUSD",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0x260af0515ee751Be4E3eC2F530E06c6B164D8864"
+    },
+    "0x4d6260b2B337aAf34785db207226C65DAdC34D86": {
+      "symbol": "UST",
+      "name": "UST",
+      "decimal": "18",
+      "supply": "10000000000000000000000000000",
+      "address": "0x4d6260b2B337aAf34785db207226C65DAdC34D86"
+    },
+    "0x289590A672C3Eb0AE9c952dBbf00E489f3F0B7b1": {
+      "symbol": "1BUSD",
+      "name": "BUSD",
+      "decimal": "18",
+      "supply": "10000000000000000000000000",
+      "address": "0x289590A672C3Eb0AE9c952dBbf00E489f3F0B7b1"
+    },
+    "0x8F745570fD29C36a9B2fEf2cc1E89a7ae8b68cA7": {
+      "symbol": "bscBUSD",
+      "name": "BUSD",
+      "decimal": "18",
+      "supply": "10000000000000000000000000",
+      "address": "0x8F745570fD29C36a9B2fEf2cc1E89a7ae8b68cA7"
+    }
+  }
+}

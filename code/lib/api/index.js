@@ -15,10 +15,10 @@ const Resolver = require('../../build/contracts/Resolver.json')
 const ReverseResolver = require('../../build/contracts/IDefaultReverseResolver.json')
 const Registrar = require('../../build/contracts/IRegistrar.json')
 // abi only - load with web3 or ethers
-const SushiRouter = require('../../external/IUniswapV2Router02.json')
-const SushiFactory = require('../../external/IUniswapV2Factory.json')
-const SushiToken = require('../../external/IERC20Uniswap.json')
-const SushiPair = require('../../external/IUniswapV2Pair.json')
+const KangaRouter = require('../../external/IUniswapV2Router02.json')
+const KangaFactory = require('../../external/IUniswapV2Factory.json')
+const KangaToken = require('../../external/IERC20Uniswap.json')
+const KangaPair = require('../../external/IUniswapV2Pair.json')
 
 const BN = require('bn.js')
 const ONEUtil = require('../util')
@@ -458,48 +458,48 @@ const api = {
     },
   },
 
-  sushi: {
+  kanga: {
     getCachedTokenPairs: async () => {
-      const { data } = await base.get('/sushi')
+      const { data } = await base.get('/kanga')
       const { pairs, tokens } = data || {}
       return { pairs, tokens }
     },
     getAmountOut: async ({ amountIn, tokenAddress, inverse }) => {
-      const c = new web3.eth.Contract(SushiRouter, ONEConstants.Sushi.ROUTER)
-      const path = inverse ? [tokenAddress, ONEConstants.Sushi.WONE] : [ONEConstants.Sushi.WONE, tokenAddress]
+      const c = new web3.eth.Contract(KangaRouter, ONEConstants.Kanga.ROUTER)
+      const path = inverse ? [tokenAddress, ONEConstants.Kanga.WONE] : [ONEConstants.Kanga.WONE, tokenAddress]
       const amountsOut = await c.methods.getAmountsOut(amountIn, path).call()
       return amountsOut[1]
     },
     getAmountIn: async ({ amountOut, tokenAddress, inverse }) => {
-      const c = new web3.eth.Contract(SushiRouter, ONEConstants.Sushi.ROUTER)
-      const path = inverse ? [ONEConstants.Sushi.WONE, tokenAddress] : [tokenAddress, ONEConstants.Sushi.WONE]
+      const c = new web3.eth.Contract(KangaRouter, ONEConstants.Kanga.ROUTER)
+      const path = inverse ? [ONEConstants.Kanga.WONE, tokenAddress] : [tokenAddress, ONEConstants.Kanga.WONE]
       const amountsIn = await c.methods.getAmountsIn(amountOut, path).call()
       return amountsIn[0]
     },
     getTokenInfo: async ({ tokenAddress }) => {
-      const t = new web3.eth.Contract(SushiToken, tokenAddress)
+      const t = new web3.eth.Contract(KangaToken, tokenAddress)
       const [symbol, name, decimal, supply] = await Promise.all([t.methods.symbol().call(), t.methods.name().call(), t.methods.decimals().call(), t.methods.totalSupply().call()])
       return {
         symbol, name, decimal, supply, address: tokenAddress
       }
     },
     getPair: async ({ t0, t1 }) => {
-      const factory = new web3.eth.Contract(SushiFactory, ONEConstants.Sushi.FACTORY)
+      const factory = new web3.eth.Contract(KangaFactory, ONEConstants.Kanga.FACTORY)
       const pair = await factory.methods.getPair(t0, t1).call()
       return pair
     },
     getReserves: async ({ pairAddress }) => {
-      const t = new web3.eth.Contract(SushiPair, pairAddress)
+      const t = new web3.eth.Contract(KangaPair, pairAddress)
       const r = await t.methods.getReserves().call()
       const [reserve0, reserve1, time] = [r[0], r[1], r[2]]
       return { reserve0, reserve1, time }
     },
     getTokenIcon: async ({ symbol }) => {
-      return `https://res.cloudinary.com/sushi-cdn/image/fetch/w_64/https://raw.githubusercontent.com/sushiswap/icons/master/token/${symbol.toLowerCase()}.jpg`
+      return `https://raw.githubusercontent.com/kangafinance/icons/master/token/${symbol.toLowerCase()}.jpg`
     },
     getAllowance: async ({ address, contractAddress }) => {
-      const t = new web3.eth.Contract(SushiToken, contractAddress)
-      const r = await t.methods.allowance(address, ONEConstants.Sushi.ROUTER).call()
+      const t = new web3.eth.Contract(KangaToken, contractAddress)
+      const r = await t.methods.allowance(address, ONEConstants.Kanga.ROUTER).call()
       // returns a BN
       return new BN(r)
     }

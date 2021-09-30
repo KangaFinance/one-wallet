@@ -30,7 +30,7 @@ export const Chaining = {
 
   refreshAllowance: ({ address, contractAddress, onAllowanceReceived }) => {
     WalletConstants.fetchDelaysAfterTransfer.forEach(async t => {
-      const allowance = await api.sushi.getAllowance({ address, contractAddress })
+      const allowance = await api.kanga.getAllowance({ address, contractAddress })
       onAllowanceReceived && onAllowanceReceived(allowance)
     })
   }
