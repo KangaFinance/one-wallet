@@ -210,6 +210,7 @@ router.post('/retire', generalLimiter({ max: 6 }), walletAddressLimiter({ max: 6
 })
 
 router.get('/kanga', generalLimiter({ max: 120 }), walletAddressLimiter({ max: 120 }), async (req, res) => {
+  console.log (`Getting Kanga Data`)
   res.json(KangaData)
 })
 

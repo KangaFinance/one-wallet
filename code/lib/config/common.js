@@ -44,7 +44,8 @@ module.exports = {
     }),
     hiddenstate: {
       name: 'Test Relayer',
-      url: 'https://relayer.onewallet.hiddenstate.xyz'
+      url: 'http://127.0.0.1:3001'
+      // url: 'https://relayer.onewallet.hiddenstate.xyz'
     }
   }
 }

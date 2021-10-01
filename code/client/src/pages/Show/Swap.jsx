@@ -189,6 +189,7 @@ const Swap = ({ address }) => {
   useEffect(() => {
     const getPairs = async () => {
       const { pairs, tokens } = await api.kanga.getCachedTokenPairs()
+      console.log(`KangaPairs: ${JSON.stringify(pairs)}`)
       // TODO: remove restrictions for token-token swaps later
       const filteredPairs = (pairs || []).filter(e => e.t0 === ONEConstants.Kanga.WONE || e.t1 === ONEConstants.Kanga.WONE)
       setPairs(filteredPairs)
